@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 #
@@ -18,7 +19,13 @@ def menu():
     
     print "0: Terminar"
     print
-
+    
+def menu_alterado():
+    print "1:nome"
+    print "2:telemovel"
+    print "3:email"
+    print "0:terminar"
+    
 def posicao_contato(codigo):
     ''' Encontra a posicao onde se encontra o livro com o código recebido
     
@@ -46,10 +53,10 @@ def inserir():
     # ler os restantes dados do registo
     nome = raw_input("Introduza nome: ")
     numero  = raw_input(" numero: ")
-     
+    email = input ("introduza o email")
     
     # Criar o novo registo
-    novo_registo = ContatoReg(codigo, nome, numero,)
+    novo_registo = ContatoReg(codigo, nome, numero,email)
 
     # Adicionar o registo à lista 
     Contatos.append(novo_registo)
@@ -59,7 +66,7 @@ def apresentar_registo(registo):
         print "Código: ", registo.codigo
         print "nome: ", registo.nome
         print " numero: ", registo.numero
-       
+        print " email", registo.email
         print "-------------------------------"
 
 
@@ -110,10 +117,10 @@ def alterar():
     #ler os novos dados
     novo_nome = raw_input("Introduza novo nome: ")
     novo_numero = input ("qual o numero: ")
-   
+    novo_email=raw_input("introduza o email")
 
     # Substituir o registo
-    Contatos[posicao] = Contatos[posicao]._replace(novo_nome,novo_numero, 
+    Contatos[posicao] = Contatos[posicao]._replace(novo_nome,novo_numero,novo_email 
     )
 
     
@@ -139,7 +146,7 @@ def eliminar():
 
 from collections import namedtuple
 
-ContatoReg = namedtuple("contatos", "codigo, nome ,numero ")
+ContatoReg = namedtuple("contatos", "codigo, nome ,numero,email")
 
 Contatos = []
 	
