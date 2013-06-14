@@ -5,80 +5,81 @@ from collections import namedtuple
 import menu
 
 
-alunoReg = namedtuple("alunoReg", "id, nome")
-listaAlunos = []
+
+automoveisreg = namedtuple("automoveisReg", " marca, modelo ,cor,cilindrada,ano de aquisição,matricula,valor do aluguerpor dia")
+automoveisreg = []
 
 
 
-def encontrar_posicao(codigo):
+def encontrar_posicao(marca):
     pos = -1
-    for i in range (len(listaAlunos)):
-        if listaAlunos[i].id == codigo:
+    for i in range (len( automoviesreg )):
+        if automoveisreg[i].id ==marca:
             pos = i
             break
                             
     return pos
 
 
-def inserir_aluno():
-    cod = input("Qual o codigo? ")
+def inserir_marca():
+    marca = input("qual a marca? ")
 
-    pos = encontrar_posicao(cod)
+    pos = encontrar_posicao(modelo)
 
     if pos >= 0:
         print "Código já existe"
         return
 
     #ler dados
-    nome = raw_input("Qual o nome? ")
+    modelo = raw_input("Qual é a cor ? ")
     
-    registo = alunoReg(cod, nome)
-    listaAlunos.append(registo)
+    registo = automoviesReg(modelo,cor)
+    automoviereg.append(registo)
 
 
-def pesquisar_aluno():
-    cod = input("Qual o codigo do aluno a pesquisar? ")
+def pesquisar_marca():
+    marca = input("Qual o codigo do aluno a pesqu? ")
 
     pos = encontrar_posicao(cod)
 
     if pos == -1:
-        print "Não existe aluno com esse código"
+        print "NÃ£o existe aluno com esse cÃ³digo"
         return
 
-    print "Código: ", listaAlunos[pos].id
+    print "CÃ³digo: ", listaAlunos[pos].id
     print "Nome: ", listaAlunos[pos].nome
     
 
 
 def listar_alunos():
     for i in range (len(listaAlunos)):
-        print "Código: ", listaAlunos[i].id
+        print "CÃ³digo: ", listaAlunos[i].id
         print "Nome: ", listaAlunos[i].nome
         
   
 
 def eliminar_aluno():
-    cod = input ("Código do aluno a eliminar --> ")
+    cod = input ("CÃ³digo do aluno a eliminar --> ")
     pos = encontrar_posicao(cod)
 
     if pos == -1:
-        print "Não existe aluno com esse código"
+        print "NÃ£o existe aluno com esse cÃ³digo"
         return
 
-    # TODO: Confirmar eliminação
+    # TODO: Confirmar eliminaÃ§Ã£o
     listaAlunos.pop(pos)
 
 
     
 def alterar_aluno():
-    cod = input ("Código do aluno a alterar --> ")
+    cod = input ("CÃ³digo do aluno a alterar --> ")
     pos = encontrar_posicao(cod)
 
     if pos == -1:
-        print "Não existe aluno com esse código"
+        print "NÃ£o existe aluno com esse cÃ³digo"
         return
 
-    # só altera o nome
+    # sÃ³ altera o nome
     novonome = raw_input("Qual o nome? ")
     listaAlunos[pos] = listaAlunos[pos]._replace(nome=novonome)
 
@@ -94,15 +95,15 @@ def gerir():
         op = menu.alunos()
 
         if op == '1':
-            inserir_aluno()
+            inserir_marca()
         elif op =='2':
-            listar_alunos()
+            listar_marca()
         elif op == '3':
-            pesquisar_aluno()
+            pesquisar_marca()
         elif op == '4':
             alterar_aluno()
         elif op == '5':
-            eliminar_aluno()
+            eliminar_marca()
         elif op == '0':
             terminar = True
 

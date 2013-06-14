@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import menu
+
 import alunos
 import util
 
@@ -11,7 +12,7 @@ fxAlunos = "fxAlunos.dat"
 def ler_ficheiros():
 	# adicionar todos ficheiros a ler
 	alunos.listaAlunos = util.ler_ficheiro(fxAlunos)
-
+     
 
 def escrever_ficheiros():
 	# adicionar todos ficheiros a guardar
