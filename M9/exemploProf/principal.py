@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import menu
-
-import alunos
+import automoveis
 import util
 
 
@@ -11,12 +10,12 @@ fxAlunos = "fxAlunos.dat"
 
 def ler_ficheiros():
 	# adicionar todos ficheiros a ler
-	alunos.listaAlunos = util.ler_ficheiro(fxAlunos)
+	automoveis.automoveis = util.ler_ficheiro(fxAlunos)
      
 
 def escrever_ficheiros():
 	# adicionar todos ficheiros a guardar
-	util.escrever_ficheiro(fxAlunos, alunos.listaAlunos)
+	util.escrever_ficheiro(fxAlunos, automoveis.automoveis)
 
 
 
@@ -29,7 +28,7 @@ while not terminar:
     op = menu.principal()
     
     if op == '1':
-        alunos.gerir()
+        automoveis.gerir()
     elif op == '2':
         pass    #por fazer
     elif op == '0':
