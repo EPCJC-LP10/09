@@ -1,17 +1,21 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Wed Jun 19 11:13:45 2013
 
+@author: i12201
+"""
 from collections import namedtuple
 
 import menu
-automoveisReg = namedtuple("automoveisReg",  "matricula,marca,modelo,cor,cilindrada,anodeaquisicao,valordealuguer")
-automoveis = []
+aluguerReg = namedtuple("aluguerReg",  "Identificacaodoautomovel,Identificacaodocliente,Datadeinicio,Datadefim") 
+alugueres = []
 
 
 
-def encontrar_posicao(matricula):
+def encontrar_posicao(Identificacaodoautomovel):
     pos = -1
-    for i in range (len(automoveis)):
-        if automoveisReg[i].matricula == matricula:
+    for i in range (len(alugueres)):
+        if aluguerReg[i].Identificacaodoautomovel == Identificacaodoautomovel:
             pos = i
             break
                             
@@ -19,48 +23,44 @@ def encontrar_posicao(matricula):
 
 
 def inserir():
-    matricula= raw_input("qual a matricula?")
+    Identificacaodoautomovel= raw_input("qual o automovel?")
 
-    pos = encontrar_posicao(matricula)
+    pos = encontrar_posicao(Identificaçãodoautomóvel)
 
     if pos >= 0:
         print "Código já existe"
         return
 
     #ler dados
-    marca = raw_input("qual a marca  ?")
-    modelo = raw_input("Qual o modelo ? ")
-    cor  = raw_input("Qual a cor ?" )
-    cilindrada = raw_input("qual a cilidrada")
-    anodaaquisicao=raw_input("qual o ano da aquisição")
-    valordealuguer=raw_input("qual o preço de aluguer")
+    Identificacaodocliente = raw_input("qual o cliente ?")
+    Datadeinicio= raw_input("Qual a data de inicio ? ")
+    Datadefim = raw_input("Qual a data final ?" )
+   
     
     
-    
-    registo = automoveisReg(matricula,marca, modelo, cor, cilindrada, anodaaquisicao, valordealuguer)
-    automoveis.append(registo)
+    registo = aluguerReg(Identificacaodoautomovel,Identificacaodocliente,Datadeinicio,Datadefim)
+    alugueres.append(registo)
 
         
 def pesquisar():
-    matricula = input("Qual a matricula ? ")
+    Identificaçãodoautomóvel = input("Qual a Identificação do automóvel ? ")
 
-    pos = encontrar_posicao(matricula)
+    pos = encontrar_posicao(Identificacaodoautomovel)
 
     if pos == -1:
-        print "Não existe matricula com essa marca"
+        print "Não existe Identificação do automóvel com a Identificação  do cliente"
         return
   
-    print "marca: ", automoveis[pos].marca
-    print "cor: ", automoveis[pos].cor
-    print "cilidrada: ", automoveis[pos].cilidrada
-    print ":anodaaquisicao ", automoveis[pos].anodaaquisicao
-    print "varlordealuguer: ", automoveis[pos].valordealuguer
+    print "Identificacaodocliente: ", alugueres[pos].Identificacaodocliente
+    print ":Datadeinicio ", alugueres[pos].Datadeinicio
+    print " Datadefim: ", alugueres[pos]. Datadefim
+    
     
 def listar():
     for i in range (len(automoveis)):
         print "marca: ", automoveis[i].marca
         print "cor: ", automoveis[i].cor
-        print "cilidrada: ", automoveis[i].cilidrada
+        print "cilid: ", automoveis[i].cilidrada
         print ":anodaaquisicao ", automoveis[i].anodaaquisicao
         print "varlordealuguer: ", automoveis[i].valordealuguer
 
@@ -121,13 +121,3 @@ def gerir():
 
 if __name__ == "__main__":
     print "Este programa não deve ser executado diretamente"
-
-
-
-
-
-
-
-
-
-

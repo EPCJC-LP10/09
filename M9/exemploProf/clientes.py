@@ -33,61 +33,58 @@ def inserir_bi():
     cartadeconducao  = raw_input("Qual o numero da carta de conducao ?" )
     
     
-    registo =clientesReg(nome,morada,cartadeconducao)
+    registo =clientesReg(bi,nome,morada,cartadeconducao)
     clientes.append(registo)
 
 
-def pesquisar_bi():
-    bi = raw_input("Qual o numero do bi ? ")
+def pesquisar():
+    bi = input("Qual o numero do bi ? ")
 
     pos = encontrar_posicao(bi)
 
     if pos == -1:
-        print "NÃ£o existe aluno com esse cÃ³digo"
+        print "Não existe bi com este nome"
         return
-
+  
     print "nome: ", clientes[pos].nome
     print "morada: ", clientes[pos].morda
-    print "cartadeconducao: ", clientes[pos].cartadeconducao
-
-
-def listar_matricula():
+    print "cartadeconducao: ",clientes [pos].cartadeconducao
+    
+    
+def listar():
     for i in range (len(clientes)):
         print "nome: ", clientes[i].nome
-        print "morada: ", clientes[i].morada
+        print "morada: ", clientes[i].morda
         print "cartadeconducao: ",clientes[i].cartadeconducao
-        
-  
+
 
 def eliminar_bi():
     bi =raw_input ("matricula da marca eliminar --> ")
-    pos = encontrar_posicao(matricula)
+    pos = encontrar_posicao(bi)
 
     if pos == -1:
-        print "NÃ£o existe marca com esse matricula"
+        print "Não existe marca com esse matricula"
         return
 
-    # TODO: Confirmar eliminaÃ§Ã£o
-    automoveis.pop(pos)
+    # TODO: Confirmar eliminação
+    clientes.pop(pos)
 
 
     
-def alterar_matricula():
-    matricula = raw_input ("matricula da  marca a alterar --> ")
-    pos = encontrar_posicao(matricula)
+def alterar_bi():
+    bi=raw_input( "bi alterar")
+    pos = encontrar_posicao(bi)
 
     if pos == -1:
-        print "NÃo existe marca com esse matricula"
+        print "NÃo existe nome este bi"
         return
 
     # sÃ³ altera o nome
-    novomarca = raw_input ("Qual o marca? ")
-    novomodelo = raw_input ("qual o modelo ")
-    novocor = raw_input ("qual a cor ")
-    novocilidarada = raw_input ("qual  a cilidrada")
-    novoano = raw_input ("qual o ano")
-    novoaluguerdia = raw_input ("quantos dias aluguer")
-    automoveis[pos] = automoveis[pos]._replace(marca=novomarca,modelo=novomodelo,cor=novocor,cilidrda=novocilidarada,ano=novoano,aluguerdia=novoaluguerdia)
+    novonome=raw_input("qual o nome")
+    novomorada=raw_input ("qual a morada ")
+    novocartadeconducao = raw_input ("qual o numero da carta de condução")
+    
+    clientes[pos] = clientes[pos]._replace(nome=novonome,morada=novomorada,cartadeconducao=novocartadeconducao)
 
 
 
@@ -101,15 +98,15 @@ def gerir():
         op = menu.alunos()
 
         if op == '1':
-            inserir_matricula()
+            inserir_bi()
         elif op =='2':
-            listar_matricula()
+            pass
         elif op == '3':
-            pesquisar_matricula()
+            pass
         elif op == '4':
-            alterar_matricula()
+            alterar_bi()
         elif op == '5':
-            eliminar_matricula()
+            eliminar_bi()
         elif op == '0':
             terminar = True
 

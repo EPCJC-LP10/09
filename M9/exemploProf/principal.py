@@ -2,20 +2,24 @@
 
 import menu
 import automoveis
+import clientes
 import util
 
 
 # nome dos ficheiros
-fxAlunos = "fxAlunos.dat"
+fxAutos = "fxAutos.dat"
+fxClientes = "fxClientes.dat"
 
 def ler_ficheiros():
-	# adicionar todos ficheiros a ler
-	automoveis.automoveis = util.ler_ficheiro(fxAlunos)
+    # adicionar todos ficheiros a ler
+    automoveis.automoveis = util.ler_ficheiro(fxAutos)
+    clientes.clientes = util.ler_ficheiro(fxClientes)
      
 
 def escrever_ficheiros():
-	# adicionar todos ficheiros a guardar
-	util.escrever_ficheiro(fxAlunos, automoveis.automoveis)
+    # adicionar todos ficheiros a guardar
+    util.escrever_ficheiro(fxAutos, automoveis.automoveis)
+    util.escrever_ficheiro(fxClientes, clientes.clientes)
 
 
 

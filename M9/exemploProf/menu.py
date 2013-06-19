@@ -4,33 +4,44 @@ def principal():
     print
     print " **** MENU ****** "
     print
-    print "   1. GestÃ£o de Alunos"
-    print "   2. Registar PresenÃ§a (nÃ£o implementado)"
+    print "   1. Gestão de Automóveis"
+    print "   2. Registar Clientes"
     print 
     print "   0. Sair"
     print 
 
-    op = raw_input("OpÃƒÂ§ÃƒÂ£o: ")
+    op = raw_input("Opção: ")
     return op
 
 
-def alunos():
+def automoveis():
     print
-    print " *** Menu Automveis **** "
+    print " *** Menu Automóveis **** "
     print
-    print "1. Inserir novo aluno"
-    print "2. Listar todos alunos"
-    print "3. Pesquisar aluno"
-    print "4. Alterar dados de um aluno"
-    print "5. Eliminar aluno"
+    print "1. Inserir novo"    
+    print "2. Alterar dados de um automóvel"
+    print "3. Eliminar automóvel"
     print 
     print "0. Menu Anterior"
 
-    op = raw_input("OpÃƒÂ§ÃƒÂ£o: ")
+    op = raw_input("Opção: ")
     return op
 
 
 
+def clientes():
+    print
+    print"********MENU clientes*********"
+    print "1,inserir novo bi"
+    print "2,alterar dados do bi"
+    print "3,eliminar bi"
+    print
+    print "0. Menu Anterior"
+
+    op = raw_input("OpÃ§Ã£o: ")
+    return op
+
+
 if __name__ == "__main__":
-    print "Este programa nÃƒÂ£o deve ser executado diretamente"
+    print "Este programa nÃ£o deve ser executado diretamente"
 
