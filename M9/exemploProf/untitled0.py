@@ -58,45 +58,37 @@ def pesquisar():
     
 def listar():
     for i in range (len(automoveis)):
-        print "marca: ", automoveis[i].marca
-        print "cor: ", automoveis[i].cor
-        print "cilid: ", automoveis[i].cilidrada
-        print ":anodaaquisicao ", automoveis[i].anodaaquisicao
-        print "varlordealuguer: ", automoveis[i].valordealuguer
+       print "Identificacaodocliente: ", alugueres[i].Identificacaodocliente
+       print ":Datadeinicio ", alugueres[i].Datadeinicio
+       print " Datadefim: ", alugueres[i]. Datadefim
 
 
 
 def eliminar():
-    matricula =raw_input ("matricula da marca eliminar --> ")
+    Identificaçãodoautomóvel =raw_input ("Identificação do automóvel da Identificação do cliente eliminar --> ")
     pos = encontrar_posicao(matricula)
 
     if pos == -1:
-        print "NÃ£o existe marca com esse matricula"
+        print "NÃ£o existe marca com esse Identificação d oautomóvel"
         return
 
     # TODO: Confirmar eliminaÃ§Ã£o
-    automoveis.pop(pos)
+    alugures.pop(pos)
 
 
     
 def alterar():
-    matricula = raw_input ("matricula da  marca a alterar --> ")
+    Identificaçãodoautomóvel = raw_input ("Identificação do automóvel da  marca a alterar --> ")
     pos = encontrar_posicao(matricula)
 
     if pos == -1:
-        print "NÃo existe marca com esse matricula"
+        print "NÃo existe marca com Identificação do automóvel"
         return
 
     # sÃ³ altera o nome
-    novomarca = raw_input ("Qual o marca? ")
-    novomodelo = raw_input ("qual o modelo ")
-    novocor = raw_input ("qual a cor ")
-    novocilindrada = raw_input ("qual  a cilidrada")
-    novoano = raw_input ("qual o ano")
-    novoaluguerdia = raw_input ("quantos dias aluguer")
-    automoveis[pos] = automoveis[pos]._replace(marca=novomarca,modelo=novomodelo,cor=novocor,cilidrda=novocilindrada,ano=novoano,aluguerdia=novoaluguerdia)
-
-
+    novoIdentificacaodocliente = raw_input("qual o cliente ?")
+    novoDatadeinicio= raw_input("Qual a data de inicio ? ")
+    novoDatadefim = raw_input("Qual a data final ?" )
 
         
 
