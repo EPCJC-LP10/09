@@ -4,27 +4,27 @@ def principal():
     print
     print " **** MENU ****** "
     print
-    print "   1. Gest�o de Autom�veis"
+    print "   1. Gestão de Automóveis"
     print "   2. Registar Clientes"
-    print 
+    print "   3. Gestao de alugueres"
     print "   0. Sair"
     print 
 
-    op = raw_input("Op��o: ")
+    op = raw_input("Opção: ")
     return op
 
 
 def automoveis():
     print
-    print " *** Menu Autom�veis **** "
+    print " *** Menu Automóveis **** "
     print
     print "1. Inserir novo"    
-    print "2. Alterar dados de um autom�vel"
-    print "3. Eliminar autom�vel"
+    print "2. Alterar dados de um automóvel"
+    print "3. Eliminar automóvel"
     print 
     print "0. Menu Anterior"
 
-    op = raw_input("Op��o: ")
+    op = raw_input("Opção: ")
     return op
 
 
@@ -38,10 +38,10 @@ def clientes():
     print
     print "0. Menu Anterior"
 
-    op = raw_input("Opção: ")
+    op = raw_input("OpÃ§Ã£o: ")
     return op
 
 
 if __name__ == "__main__":
-    print "Este programa não deve ser executado diretamente"
+    print "Este programa nÃ£o deve ser executado diretamente"
 

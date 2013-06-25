@@ -19,3 +19,4 @@ b = datetime.strptime(data_fim,'%d-%m-%Y')
 
 timedelta(7)
 print (b-a).days
+
