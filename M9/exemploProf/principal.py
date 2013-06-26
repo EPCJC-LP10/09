@@ -10,14 +10,7 @@ import alugueres
 fxAutos = "fxAutos.dat"
 fxClientes = "fxClientes.dat"
 fxalugueres = "fxalugueres.dat"
-<<<<<<< HEAD
-=======
 
-
-
-
-
->>>>>>> 1sic
 
 def ler_ficheiros():
     # adicionar todos ficheiros a ler
@@ -44,11 +37,7 @@ while not terminar:
     if op == '1':
         automoveis.gerir()
     elif op == '2':
-<<<<<<< HEAD
-        clientes.gerir ()
-=======
         clientes.gerir()
->>>>>>> 1sic
     elif op == '3':
         alugueres.gerir()
     elif op == '0':

@@ -6,11 +6,8 @@ def principal():
     print
     print "   1. Gestão de Automóveis"
     print "   2. Registar Clientes"
-<<<<<<< HEAD
     print "   3. Gestao de alugueres"
-=======
-    print "   3. Gestao de alugueres
->>>>>>> 1sic
+
     print "   0. Sair"
     print 
 
