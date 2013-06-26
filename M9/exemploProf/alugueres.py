@@ -5,7 +5,6 @@ Created on Wed Jun 19 11:13:45 2013
 @author: i12201
 """
 from collections import namedtuple
-from collections import namedtuple
 from datetime import datetime
 from datetime import timedelta
 import automoveis
@@ -13,7 +12,7 @@ import automoveis
 
 import menu
 
-aluguerReg = namedtuple("aluguerReg",  "Identificacaodoautomovel,Identificacaodocliente,Datadeinicio,Datadefim") 
+aluguerReg = namedtuple("aluguerReg",  "Identificacaodoautomovel,Identificacaodocliente, Datadeinicio, Datadefim, valorPagar") 
 alugueres = []
 
 
@@ -42,9 +41,12 @@ def inserir():
     Datadeinicio= raw_input("Qual a data de inicio ? ")
     Datadefim = raw_input("Qual a data final ?" )
    
+    valorAluguer =   automoveis.automoveis[Identificacaodoautomovel].valordealuguer      
+    
+    valorPagar =  calcularValorPagar(Datadeinicio, Datadefim, valorAluguer) 
     
     
-    registo = aluguerReg(Identificacaodoautomovel,Identificacaodocliente,Datadeinicio,Datadefim)
+    registo = aluguerReg(Identificacaodoautomovel,Identificacaodocliente, Datadeinicio, Datadefim, valorPagar)
     alugueres.append(registo)
 
         
@@ -86,38 +88,33 @@ def eliminar():
 def alterar():
     Identificacaodoautomovel = raw_input ("Identificação do automóvel  alteracao --> ")
     pos = encontrar_posicao(Identificacaodoautomovel)
-
+    
     if pos == -1:
         print "NÃo existe  Identificação do automóvel"
         return
-
+    
     # sÃ³ altera o nome
     novoIdentificacaodocliente = raw_input("qual o cliente ?")
     novoDatadeinicio= raw_input("Qual a data de inicio ? ")
     novoDatadefim = raw_input("Qual a data final ?" )
+    
+    alugueres[pos] = alugueres[pos]._replace(Identificacaodocliente=novoIdentificacaodocliente,Datadeinicio=novoDatadeinicio,Datadefim=novoDatadefim)
    
    
    
-   def calcularValorPagar(aluguer, idautomovel):
+def calcularValorPagar(di, df, valordiario):
 
-    a = datetime.strptime(aluguer.Datadeinicio, '%d-%m-%Y')
-    b = datetime.strptime(aluguer.Datadefim, '%d-%m-%Y')
+    a = datetime.strptime(di, '%d-%m-%Y')
+    b = datetime.strptime(df, '%d-%m-%Y')
     
     timedelta(7)
     ndias =  (b-a).days
     
+
     
-    #Ir buscar o valor a pagar do automovel
-    valorAluguer =   automoveis.automoveis[idautomovel].valordealuguer  
-    print valorAluguer
+    return ndias * valordiario
     
-    print "Valor a pagar = ", ndias * valorAluguer
-    
-    
-    
-    
-    alugueres[pos] = alugueres[pos]._replace(Identificacaodocliente=novoIdentificacaodocliente,Datadeinicio=novoDatadeinicio,Datadefim=novoDatadefim)
-        
+
 
 def gerir():
 
