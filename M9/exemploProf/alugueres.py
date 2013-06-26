@@ -5,11 +5,14 @@ Created on Wed Jun 19 11:13:45 2013
 @author: i12201
 """
 from collections import namedtuple
+from collections import namedtuple
 from datetime import datetime
 from datetime import timedelta
 import automoveis
 
+
 import menu
+
 aluguerReg = namedtuple("aluguerReg",  "Identificacaodoautomovel,Identificacaodocliente,Datadeinicio,Datadefim") 
 alugueres = []
 
@@ -26,10 +29,9 @@ def encontrar_posicao(Identificacaodoautomovel):
 
 
 def inserir():
-    Identificacaodoautomovel= raw_input("qual o automovel?")
+    Identificacaodoautomovel= raw_input("qual o identificao do automovel?")
 
     pos = encontrar_posicao(Identificacaodoautomovel)
-  
 
     if pos >= 0:
         print "Código já existe"
@@ -43,7 +45,6 @@ def inserir():
     
     
     registo = aluguerReg(Identificacaodoautomovel,Identificacaodocliente,Datadeinicio,Datadefim)
-    calcularValorPagar(registo, Identificacaodoautomovel)
     alugueres.append(registo)
 
         
@@ -62,7 +63,7 @@ def pesquisar():
     
     
 def listar():
-    for i in range (len(automoveis)):
+    for i in range (len(alugueres)):
        print "Identificacaodocliente: ", alugueres[i].Identificacaodocliente
        print ":Datadeinicio ", alugueres[i].Datadeinicio
        print " Datadefim: ", alugueres[i]. Datadefim
@@ -71,10 +72,10 @@ def listar():
 
 def eliminar():
     Identificacaodoautomovel =raw_input ("Identificação do automóvel da Identificação do cliente eliminar --> ")
-    pos = encontrar_posicao( Identificacaodoautomovel)
+    pos = encontrar_posicao(Identificacaodoautomovel)
 
     if pos == -1:
-        print "NÃ£o existe marca com esse Identificação d oautomóvel"
+        print "NÃ£o existe  Identificação do automóvel com esse cliente "
         return
 
     # TODO: Confirmar eliminaÃ§Ã£o
@@ -83,20 +84,21 @@ def eliminar():
 
     
 def alterar():
-    Identificacaoodoautomovel = raw_input ("Identificação do automóvel e alterar --> ")
-    pos = encontrar_posicao( Identificacaodoautomovel)
+    Identificacaodoautomovel = raw_input ("Identificação do automóvel  alteracao --> ")
+    pos = encontrar_posicao(Identificacaodoautomovel)
 
     if pos == -1:
-        print "NÃo existe marca com Identificação do automóvel"
+        print "NÃo existe  Identificação do automóvel"
         return
 
     # sÃ³ altera o nome
     novoIdentificacaodocliente = raw_input("qual o cliente ?")
     novoDatadeinicio= raw_input("Qual a data de inicio ? ")
     novoDatadefim = raw_input("Qual a data final ?" )
-
-
-def calcularValorPagar(aluguer, idautomovel):
+   
+   
+   
+   def calcularValorPagar(aluguer, idautomovel):
 
     a = datetime.strptime(aluguer.Datadeinicio, '%d-%m-%Y')
     b = datetime.strptime(aluguer.Datadefim, '%d-%m-%Y')
@@ -111,7 +113,10 @@ def calcularValorPagar(aluguer, idautomovel):
     
     print "Valor a pagar = ", ndias * valorAluguer
     
-
+    
+    
+    
+    alugueres[pos] = alugueres[pos]._replace(Identificacaodocliente=novoIdentificacaodocliente,Datadeinicio=novoDatadeinicio,Datadefim=novoDatadefim)
         
 
 def gerir():

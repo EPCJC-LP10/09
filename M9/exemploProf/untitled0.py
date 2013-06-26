@@ -5,8 +5,14 @@ Created on Wed Jun 19 11:13:45 2013
 @author: i12201
 """
 from collections import namedtuple
+from collections import namedtuple
+from datetime import datetime
+from datetime import timedelta
+import automoveis
+
 
 import menu
+
 aluguerReg = namedtuple("aluguerReg",  "Identificacaodoautomovel,Identificacaodocliente,Datadeinicio,Datadefim") 
 alugueres = []
 
@@ -25,7 +31,7 @@ def encontrar_posicao(Identificacaodoautomovel):
 def inserir():
     Identificacaodoautomovel= raw_input("qual o automovel?")
 
-    pos = encontrar_posicao(Identificaçãodoautomóvel)
+    pos = encontrar_posicao(Identificacaodoautomovel)
 
     if pos >= 0:
         print "Código já existe"
@@ -43,7 +49,7 @@ def inserir():
 
         
 def pesquisar():
-    Identificaçãodoautomóvel = input("Qual a Identificação do automóvel ? ")
+    Identificacaodoautomovel = input("Qual a Identificação do automóvel ? ")
 
     pos = encontrar_posicao(Identificacaodoautomovel)
 
@@ -65,21 +71,21 @@ def listar():
 
 
 def eliminar():
-    Identificaçãodoautomóvel =raw_input ("Identificação do automóvel da Identificação do cliente eliminar --> ")
-    pos = encontrar_posicao(matricula)
+    Identificacaodoautomovel =raw_input ("Identificação do automóvel da Identificação do cliente eliminar --> ")
+    pos = encontrar_posicao(Identificacaodoautomovel)
 
     if pos == -1:
         print "NÃ£o existe marca com esse Identificação d oautomóvel"
         return
 
     # TODO: Confirmar eliminaÃ§Ã£o
-    alugures.pop(pos)
+    alugueres.pop(pos)
 
 
     
 def alterar():
-    Identificaçãodoautomóvel = raw_input ("Identificação do automóvel da  marca a alterar --> ")
-    pos = encontrar_posicao(matricula)
+    Identificacaodoautomovel = raw_input ("Identificação do automóvel da  marca a alterar --> ")
+    pos = encontrar_posicao(Identificacaodoautomovel)
 
     if pos == -1:
         print "NÃo existe marca com Identificação do automóvel"
@@ -89,7 +95,28 @@ def alterar():
     novoIdentificacaodocliente = raw_input("qual o cliente ?")
     novoDatadeinicio= raw_input("Qual a data de inicio ? ")
     novoDatadefim = raw_input("Qual a data final ?" )
+   
+   
+   
+   def calcularValorPagar(aluguer, idautomovel):
 
+    a = datetime.strptime(aluguer.Datadeinicio, '%d-%m-%Y')
+    b = datetime.strptime(aluguer.Datadefim, '%d-%m-%Y')
+    
+    timedelta(7)
+    ndias =  (b-a).days
+    
+    
+    #Ir buscar o valor a pagar do automovel
+    valorAluguer =   automoveis.automoveis[idautomovel].valordealuguer  
+    print valorAluguer
+    
+    print "Valor a pagar = ", ndias * valorAluguer
+    
+    
+    
+    
+    alugueres[pos] = alugueres[pos]._replace(Identificacaodocliente=novoIdentificacaodocliente,Datadeinicio=novoDatadeinicio,Datadefim=novoDatadefim)
         
 
 def gerir():
