@@ -11,7 +11,7 @@ automoveis = []
 def encontrar_posicao(matricula):
     pos = -1
     for i in range (len(automoveis)):
-        if automoveisReg[i].matricula == matricula:
+        if automoveis[i].matricula == matricula:
             pos = i
             break
                             

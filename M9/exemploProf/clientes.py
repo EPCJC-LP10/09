@@ -11,7 +11,7 @@ clientes = []
 def encontrar_posicao(bi):
     pos = -1
     for i in range (len(clientes)):
-        if clientesReg[i].bi == bi:
+        if clientes[i].bi == bi:
             pos = i
             break
                             
@@ -95,18 +95,14 @@ def gerir():
     terminar = False
 
     while not terminar:
-        op = menu.alunos()
+        op = menu.clientes()
 
-        if op == '1':
-            inserir_bi()
-        elif op =='2':
-            pass
+        if op == '1': 
+            inserir ()
         elif op == '3':
-            pass
-        elif op == '4':
-            alterar_bi()
-        elif op == '5':
-            eliminar_bi()
+            alterar ()
+        elif op ==  '3':
+            eliminar ()
         elif op == '0':
             terminar = True
 

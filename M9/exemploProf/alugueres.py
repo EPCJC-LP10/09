@@ -20,7 +20,7 @@ alugueres = []
 def encontrar_posicao(Identificacaodoautomovel):
     pos = -1
     for i in range (len(alugueres)):
-        if aluguerReg[i].Identificacaodoautomovel == Identificacaodoautomovel:
+        if alugueres[i].Identificacaodoautomovel == Identificacaodoautomovel:
             pos = i
             break
                             
@@ -121,7 +121,7 @@ def gerir():
     terminar = False
 
     while not terminar:
-        op = menu.automoveis()
+        op = menu.alugueres()
 
         if op == '1':
             inserir()

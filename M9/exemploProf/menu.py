@@ -41,6 +41,23 @@ def clientes():
 
     op = raw_input("OpÃ§Ã£o: ")
     return op
+    
+    
+
+def alugueres():
+    print
+    print"********MENU alugueres*********"
+    print "1,inserir novo aluguer"
+    print "2,alterar dados do aluguer"
+    print "3,eliminar aluguer"
+    print
+    print "0. Menu Anterior"
+
+    op = raw_input("OpÃ§Ã£o: ")
+    return op
+    
+    
+    
 
 
 if __name__ == "__main__":
