@@ -145,8 +145,10 @@ def gerir():
         if op == '1':
             inserir()
         elif op == '2':
-            alterar()
+            listar()
         elif op == '3':
+            alterar()
+        elif op == '4':
             eliminar()
         elif op == '0':
             terminar = True

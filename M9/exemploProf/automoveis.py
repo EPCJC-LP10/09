@@ -61,7 +61,7 @@ def listar():
         print "marca: ", automoveis[i].marca
         print "cor: ", automoveis[i].cor
         print "cilidrada: ", automoveis[i].cilindrada
-        print ":anodaaquisicao ", automoveis[i].anodeaquisicao
+        print "anodaaquisicao ", automoveis[i].anodeaquisicao
         print "varlordealuguer: ", automoveis[i].valordealuguer
 
 

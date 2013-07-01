@@ -35,8 +35,9 @@ def clientes():
     print
     print"********MENU clientes*********"
     print "1,inserir novo bi"
-    print "2,alterar dados do bi"
-    print "3,eliminar bi"
+    print "2. Listar todos"
+    print "3,alterar dados do bi"
+    print "4,eliminar bi"
     print
     print "0. Menu Anterior"
 
@@ -49,9 +50,10 @@ def alugueres():
     print
     print"********MENU alugueres*********"
     print "1. inserir novo aluguer"
-    print "2. Ver todos alugueres"
-    print "3. Ver alugueres por automovel"
-    print "4. Ver alugueres por cliente"
+    print "2. Listar todos"
+    print "3. Ver todos alugueres"
+    print "4. Ver alugueres por automovel"
+    print "5. Ver alugueres por cliente"
     print
     print "0. Menu Anterior"
 

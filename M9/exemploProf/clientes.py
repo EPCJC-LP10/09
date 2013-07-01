@@ -18,7 +18,7 @@ def encontrar_posicao(bi):
     return pos
 
 
-def inserir_bi():
+def inserir():
     bi= raw_input("qual o numero do bi?")
 
     pos = encontrar_posicao(bi)
@@ -54,12 +54,12 @@ def pesquisar():
 def listar():
     for i in range (len(clientes)):
         print "nome: ", clientes[i].nome
-        print "morada: ", clientes[i].morda
+        print "morada: ", clientes[i].morada
         print "cartadeconducao: ",clientes[i].cartadeconducao
 
 
-def eliminar_bi():
-    bi =raw_input ("matricula da marca eliminar --> ")
+def eliminar():
+    bi =raw_input ("bi  eliminar --> ")
     pos = encontrar_posicao(bi)
 
     if pos == -1:
@@ -71,7 +71,7 @@ def eliminar_bi():
 
 
     
-def alterar_bi():
+def alterar():
     bi=raw_input( "bi alterar")
     pos = encontrar_posicao(bi)
 
@@ -98,10 +98,12 @@ def gerir():
         op = menu.clientes()
 
         if op == '1': 
-            inserir ()
+            inserir()
+        elif op == '2':
+            listar()
         elif op == '3':
             alterar ()
-        elif op ==  '3':
+        elif op ==  '4':
             eliminar ()
         elif op == '0':
             terminar = True
