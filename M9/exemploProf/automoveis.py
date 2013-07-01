@@ -52,16 +52,16 @@ def pesquisar():
   
     print "marca: ", automoveis[pos].marca
     print "cor: ", automoveis[pos].cor
-    print "cilidrada: ", automoveis[pos].cilidrada
-    print ":anodaaquisicao ", automoveis[pos].anodaaquisicao
+    print "cilidrada: ", automoveis[pos].cilindrada
+    print ":anodaaquisicao ", automoveis[pos].anodeaquisicao
     print "varlordealuguer: ", automoveis[pos].valordealuguer
     
 def listar():
     for i in range (len(automoveis)):
         print "marca: ", automoveis[i].marca
         print "cor: ", automoveis[i].cor
-        print "cilidrada: ", automoveis[i].cilidrada
-        print ":anodaaquisicao ", automoveis[i].anodaaquisicao
+        print "cilidrada: ", automoveis[i].cilindrada
+        print ":anodaaquisicao ", automoveis[i].anodeaquisicao
         print "varlordealuguer: ", automoveis[i].valordealuguer
 
 
@@ -110,8 +110,10 @@ def gerir():
         if op == '1':
             inserir()
         elif op == '2':
-            alterar()
+            listar()
         elif op == '3':
+            alterar()
+        elif op == '4':
             eliminar()
         elif op == '0':
             terminar = True

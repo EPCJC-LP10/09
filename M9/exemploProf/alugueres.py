@@ -8,6 +8,7 @@ from collections import namedtuple
 from datetime import datetime
 from datetime import timedelta
 import automoveis
+import clientes
 
 
 import menu
@@ -18,35 +19,53 @@ alugueres = []
 
 
 def encontrar_posicao(Identificacaodoautomovel):
-    pos = -1
-    for i in range (len(alugueres)):
-        if alugueres[i].Identificacaodoautomovel == Identificacaodoautomovel:
-            pos = i
+    auto = None
+    for i in range (len(automoveis.automoveis)):
+        if automoveis.automoveis[i].matricula == Identificacaodoautomovel:
+            auto = automoveis.automoveis[i]
             break
                             
-    return pos
-
+    return auto
+    
+def encontrar_cliente(Identificacaocliente):
+    cli = None
+    for i in range (len(automoveis.automoveis)):
+        if clientes.clientes[i].bi == Identificacaocliente:
+            cli = clientes.clientes[i]
+            break
+                            
+    return cli
 
 def inserir():
-    Identificacaodoautomovel= raw_input("qual o identificao do automovel?")
+    Identificacaodoautomovel= raw_input("qual a matricula? ")
 
-    pos = encontrar_posicao(Identificacaodoautomovel)
+    auto = encontrar_posicao(Identificacaodoautomovel)
 
-    if pos >= 0:
-        print "Código já existe"
+    if auto == None:
+        print "Esse automóvel não existe"
         return
 
     #ler dados
-    Identificacaodocliente = raw_input("qual o cliente ?")
+    Identificacaodocliente = raw_input("qual o BI ?")
+    cli = encontrar_posicao(Identificacaodocliente)    
+
+    if cli == None:
+        print "Esse cliente não existe"
+        return
+    
+    
+    
     Datadeinicio= raw_input("Qual a data de inicio ? ")
     Datadefim = raw_input("Qual a data final ?" )
    
-    valorAluguer =   automoveis.automoveis[Identificacaodoautomovel].valordealuguer      
+    valorAluguer =   int(auto.valordealuguer)
     
     valorPagar =  calcularValorPagar(Datadeinicio, Datadefim, valorAluguer) 
     
+    print valorPagar
     
-    registo = aluguerReg(Identificacaodoautomovel,Identificacaodocliente, Datadeinicio, Datadefim, valorPagar)
+    
+    registo = aluguerReg(Identificacaodoautomovel, cli, Datadeinicio, Datadefim, valorPagar)
     alugueres.append(registo)
 
         

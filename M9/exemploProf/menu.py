@@ -20,8 +20,9 @@ def automoveis():
     print " *** Menu Automóveis **** "
     print
     print "1. Inserir novo"    
-    print "2. Alterar dados de um automóvel"
-    print "3. Eliminar automóvel"
+    print "2. Listar todos"    
+    print "3. Alterar dados de um automóvel"
+    print "4. Eliminar automóvel"
     print 
     print "0. Menu Anterior"
 
@@ -47,9 +48,10 @@ def clientes():
 def alugueres():
     print
     print"********MENU alugueres*********"
-    print "1,inserir novo aluguer"
-    print "2,alterar dados do aluguer"
-    print "3,eliminar aluguer"
+    print "1. inserir novo aluguer"
+    print "2. Ver todos alugueres"
+    print "3. Ver alugueres por automovel"
+    print "4. Ver alugueres por cliente"
     print
     print "0. Menu Anterior"
 
